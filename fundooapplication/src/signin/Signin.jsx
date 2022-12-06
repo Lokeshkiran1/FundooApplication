@@ -13,8 +13,8 @@ const SignIn=()=>{
                     <span className="subText">Use your Google Account</span>
                 </div>
                 <div className="columnform" >
-                    <TextField id="outlined" label="Email" variant="outlined" margin="normal" />
-                    <TextField id="outlined" label="Password" variant="outlined" margin="normal" />
+                    <div><TextField className="outlined" label="Email" variant="outlined" margin="normal" /></div>
+                    <div><TextField className="outlined"label="Password" variant="outlined" margin="normal" /></div>
                 </div>
                 <div className="notComputer">Not your computer? Use Guest mode to sign in privately.
                     <a className="link" href="https://support.google.com/chrome/answer/6130773?hl=en">Learn More</a>

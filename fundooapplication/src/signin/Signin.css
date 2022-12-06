@@ -4,12 +4,12 @@
 }
 
 .loginCard{
-    width: 35%;
+    width: 30%;
     border-radius: 8px;
     border: 1px solid #dadce0;
     display: block;
     margin: 80px auto;
-    padding: 40px 40px 40px;
+    padding: 10px 10px 10px;
     height: fit-content;
     align-items: center;
     justify-content: center;
@@ -31,26 +31,16 @@
     justify-content: center;
 }
 .columnform{
-    margin: 1%;
-    flex-flow: column;
-    flex-wrap: wrap;
-    width: 100% auto;
-    padding: 1% 5% 1%;
+    padding: 10px;
 }
-#outlined{
-    
-    height: 50px;
-    width: 350px;
-    /* height: 10%;
-    width:100%; */
-    box-sizing: inherit;
-    text-align: center;
+.outlined{
+    width: 80%;
 }
 .notComputer{
     padding-bottom: 3px;
     padding-top: 20px;
     color: #5f6368;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4286;
 }
 .link{
@@ -62,12 +52,12 @@
 }
 .buttonRegister{
     justify-content: space-between;
-    padding: 30px 0;
+    padding: 5px 0;
 }
 .row{
     display: flex;
     border: 0px solid;
-    width: 70%;
+    width: 75%;
     align-items: center;
     justify-content: space-between;
     padding: 1% 7% 1% 13%;
