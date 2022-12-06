@@ -1,0 +1,69 @@
+.register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    text-align: left;
+}
+.cardrow{
+    width: 40%;
+    margin-top: 0%;
+    padding: 40px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+}
+.cardI{
+    width: 60%;
+    padding: 0% 5% 1% 1%;
+}
+.createText{
+    padding: 5% 10% 5% 0%;
+    font-size: x-large;
+    font-weight: 500;
+}
+.textField{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.columnTextField{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1%;
+}
+.rowTextField{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1% 1% 5% 1%;
+}
+.helpText{
+    font-size: 12px;
+}
+.buttonCurrentEmail{
+    padding: 1% 1% 2% 1%;
+}
+.passwordTextField{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.passwordValidation{
+    padding: 0% 0% 2% 1%;   
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5% 0% 0% 0%;
+}
+.buttonRegister{
+    padding: 1%;
+}
+.columncenterhide{
+    padding: 10% 1% 0% 0%;
+}
+
