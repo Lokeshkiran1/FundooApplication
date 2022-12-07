@@ -1,18 +1,20 @@
 .loginPage{
     height: 100vh;
     width: 100vw;
+    
 }
-
 .loginCard{
     width: 30%;
     border-radius: 8px;
     border: 1px solid #dadce0;
-    display: block;
+    display: flex;
     margin: 80px auto;
     padding: 10px 10px 10px;
     height: 70%;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .fitWidth{
     font-weight: 500;
@@ -22,7 +24,7 @@
     padding-bottom: 0;
     padding-top: 16px;
     font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 1.3333;
     margin-bottom: 0;
@@ -30,18 +32,24 @@
     align-items: center;
     justify-content: center;
 }
+.subText{
+    font-size: large;
+    font-weight: 400;
+}
 .columnform{
+    width: 100%;
     padding: 10px;
 }
 .outlined{
     width: 80%;
 }
 .notComputer{
+    width: 80%;
     padding-bottom: 3px;
-    padding-top: 20px;
     color: #5f6368;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.4286;
+    font-weight: 400;
 }
 .link{
     border-radius: 4px;
@@ -50,19 +58,10 @@
     font-weight: 500;
     letter-spacing: 0.5px;
 }
-.buttonRegister{
-    justify-content: space-between;
-    padding: 35px 0;
-}
 .row{
-    display: flex;
-    border: 0px solid;
-    width: 75%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1% 7% 1% 13%;
+    width: 80% !important;
 }
-.create{
+.createAccount{
     color: #1a73e8;
     display: inline-block;
     font-weight: 500;

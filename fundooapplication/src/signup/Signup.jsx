@@ -63,7 +63,7 @@ const SignUp=()=>{
                 <div className="columncenterhide" style={{width:'244px',alignContent:'center'}}>
                     <img src={logo} alt="account.svg" />
                     <div className="oneAccount" style={{textAlign:'center' ,fontSize:'18px'}}>
-                        <span>One account. All of Google working for you.</span>
+                        <span>One account. All of Fudoo working for you.</span>
                     </div>
                 </div>
             </Card>

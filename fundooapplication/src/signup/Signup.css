@@ -20,7 +20,7 @@
 .createText{
     padding: 5% 10% 5% 0%;
     font-size: x-large;
-    font-weight: 500;
+    font-weight: 400;
 }
 .textField{
     display: flex;
@@ -58,7 +58,7 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    padding: 5% 0% 0% 0%;
+    padding: 6% 0% 0% 0%;
 }
 .buttonRegister{
     padding: 1%;
