@@ -6,8 +6,8 @@ import SignUp from '../src/signup/Signup.jsx';
 function App() {
   return (
     <div className="App">
-      <SignIn />
-      {/* <SignUp /> */}
+      {/* <SignIn /> */}
+      <SignUp />
     </div>
   );
 }

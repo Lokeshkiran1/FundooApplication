@@ -54,14 +54,15 @@
     padding: 0% 0% 2% 1%;   
 }
 .row{
+    align-items: center;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 100% !important;
     justify-content: space-between;
-    padding: 6% 0% 0% 0%;
+    padding: 5% 0% 0% 0%;
 }
 .buttonRegister{
-    padding: 1%;
+    padding: 0%;
 }
 .columncenterhide{
     padding: 10% 1% 0% 0%;
