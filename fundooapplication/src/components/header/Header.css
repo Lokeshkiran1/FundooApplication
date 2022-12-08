@@ -1,0 +1,72 @@
+.header{
+    width: 100vw;
+    height: 8vh;
+    border:1px solid #dadce0;
+    padding: 7px 7px 7px 7px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mainMenu{
+    width: 15% !important;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu{
+    font-size: 2.5rem;
+    width: 100px;
+    height: 60px;
+}
+.keep{
+    font-size: 3.0rem;
+    width: 100px;
+    height: 60px;
+}
+.searchHeader{
+    border: 0px solid red;
+    width: 54%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #f1f3f4;
+    position: relative;
+    left: 60px;
+}
+.search{
+    border: 0px solid red;
+    position: relative;
+    left: 20px;
+}
+.searchInput{
+    border: 0px solid red;
+    position: relative;
+    left: 40px;
+}
+.refreshHeader{
+    border: 0px solid red;
+    width: 15%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    left: 70px;
+}
+.account{
+    border: 0px solid red;
+    width: 10%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    left: 5%;
+
+}
