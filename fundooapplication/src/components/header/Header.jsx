@@ -1,11 +1,11 @@
 import { Search } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { InputBase} from '@mui/material';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import SettingsIcon from '@mui/icons-material/Settings';
+import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import AppsIcon from '@mui/icons-material/Apps';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import React from 'react';
 import FundooIcon from "../FundooIcon";
 import "./Header.css"
@@ -24,12 +24,12 @@ const Header=()=>{
                 </div>
                 <div className='refreshHeader'>
                     <RefreshIcon></RefreshIcon>
-                    <ViewListIcon></ViewListIcon>
-                    <SettingsIcon></SettingsIcon>
+                    <ListOutlinedIcon></ListOutlinedIcon>
+                    <SettingsOutlinedIcon></SettingsOutlinedIcon>
                 </div>
                 <div className='account'>
                     <AppsIcon></AppsIcon>
-                    <AccountCircleIcon></AccountCircleIcon>
+                    <AccountCircleOutlinedIcon></AccountCircleOutlinedIcon>
                 </div>
             </div>
         </div>
