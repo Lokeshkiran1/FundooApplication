@@ -5,7 +5,10 @@ import './TakeNoteTwo.css'
 import React from 'react';
 import ColorLensTwoToneIcon from '@mui/icons-material/ColorLensTwoTone';
 import { AddAlertOutlined, ArchiveOutlined, InsertPhotoOutlined, MoreVertOutlined, PersonAddAlt1Outlined, PushPinOutlined, RedoOutlined, UndoOutlined } from '@mui/icons-material';
-const TakeNoteTwo=()=>{
+const TakeNoteTwo=(props)=>{
+    const openNoteOne=()=>{
+        props.listenToTakeNoteTwoCloseButton()
+    }
     return(
         <Box>
             <Paper elevation={3} className='takeNoteTwo'>
@@ -48,7 +51,7 @@ const TakeNoteTwo=()=>{
                                         <RedoOutlined></RedoOutlined>
                                     </Tooltip>
                             </Box>
-                            <Box className='close'>
+                            <Box className='close' onClick={openNoteOne}>
                                 <Button variant="text" size="small"  style={{textTransform: "none",fontSize: "16px",color:"black" ,fontWeight: "bold",fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>Close</Button>
                             </Box>
                     </Box>

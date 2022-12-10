@@ -6,16 +6,18 @@ import Header from './components/header/Header';
 import TakeNoteOne from './components/takenoteone/TakeNoteOne';
 import TakeNoteTwo from './components/takeNoteTwo/TakeNoteTwo';
 import TakeNoteThree from './components/takeNoteThree/TakeNoteThree';
+import DashBoard from './components/dashboard/dashboard';
 
 function App() {
   return (
     <div className="App">
+      <DashBoard />
       {/* <SignIn /> */}
       {/* <SignUp /> */}
-      <Header/>
+      {/* <Header/>
       <TakeNoteOne />
       <TakeNoteTwo />
-      <TakeNoteThree />      
+      <TakeNoteThree />       */}
     </div>
   );
 }
