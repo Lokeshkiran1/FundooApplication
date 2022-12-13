@@ -4,7 +4,7 @@ import './TakeNoteOne.css';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import BrushIcon from '@mui/icons-material/Brush';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
-import { Paper, Tooltip } from '@mui/material';
+import { InputBase, Paper, Tooltip } from '@mui/material';
 const TakeNoteOne=(props)=>{
     const openNoteTwo=()=>{
         props.listenToTakeNoteOne()
@@ -23,7 +23,7 @@ const TakeNoteOne=(props)=>{
         <Box>
             <Paper elevation={4} className='takeNote' onClick={openNoteTwo}>
                 <Box className='takeNoteOne'>
-                    <input className='noteOne' placeholder='Take a note...'></input>
+                    <InputBase className='noteOne' placeholder='Take a note...'></InputBase>
                     <Box className='takeNoteIcon'>
                         <Tooltip>
                             <CheckBoxOutlinedIcon></CheckBoxOutlinedIcon>                     

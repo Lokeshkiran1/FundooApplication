@@ -2,19 +2,53 @@ import { IconButton, InputBase, Paper, Tooltip } from '@mui/material';
 import { Box } from '@mui/system';
 import Button from '@mui/material/Button';
 import './TakeNoteTwo.css'
-import React from 'react';
+import React, { useState } from 'react';
 import ColorLensTwoToneIcon from '@mui/icons-material/ColorLensTwoTone';
 import { AddAlertOutlined, ArchiveOutlined, InsertPhotoOutlined, MoreVertOutlined, PersonAddAlt1Outlined, PushPinOutlined, RedoOutlined, UndoOutlined } from '@mui/icons-material';
+import { createNote } from '../../services/DataService';
+import ColorPopper from '../colorpopup/ColorPopup';
 const TakeNoteTwo=(props)=>{
+    const [noteObj,setNoteObj]=useState({title:'',description:'',color:'',isArchived:false})
+    const takingTitle=(event)=>{
+        setNoteObj(prevState=>({
+            ...prevState,
+            title:event.target.value
+        }))
+    }
+    const takingDescription=(event)=>{
+        setNoteObj(prevState=>({
+            ...prevState,
+            description:event.target.value
+        }))
+    }
     const openNoteOne=()=>{
         props.listenToTakeNoteTwoCloseButton()
+        createNote(noteObj).then(response=>{
+            console.log(response);
+        }).catch(error=>{
+            console.log(error);
+        })
     }
+    const noteArchived=()=>{
+        setNoteObj(prevState=>({
+            ...prevState,
+            isArchived: true
+        }))
+    }
+    const listenToColor=(colour)=>{
+        setNoteObj(prevState=>({
+            ...prevState,
+            color:colour
+        }))
+
+    }
+    console.log("from note 2======>>",noteObj);
     return(
         <Box>
-            <Paper elevation={3} className='takeNoteTwo'>
+            <Paper elevation={3} className='takeNoteTwo' style={{backgroundColor:noteObj.color}}>
                 <Box className='takeNote2A'>
                     <Box className='titlePin'>
-                        <input className='title' placeholder='Title'></input>
+                        <InputBase className='title' placeholder='Title' onChange={takingTitle}></InputBase>
                         <IconButton className='icons'>
                             <Tooltip title="pin">
                                 <PushPinOutlined></PushPinOutlined>
@@ -22,34 +56,46 @@ const TakeNoteTwo=(props)=>{
                         </IconButton>
                     </Box>
                     <Box className='description'>
-                        <InputBase className='takeNote2Decxription' placeholder='Take a note...'></InputBase>
+                        <InputBase className='takeNote2Description' placeholder='Take a note...' onChange={takingDescription} ></InputBase>
                     </Box>
                     <Box className='note2c'>
                             <Box className='note2d'>
+                                <IconButton>
                                     <Tooltip>
                                         <AddAlertOutlined></AddAlertOutlined>
                                     </Tooltip>
+                                </IconButton>
+                                <IconButton> 
                                     <Tooltip>
                                         <PersonAddAlt1Outlined></PersonAddAlt1Outlined>
                                     </Tooltip>
-                                    <Tooltip>
-                                        <ColorLensTwoToneIcon></ColorLensTwoToneIcon>
+                                </IconButton>
+                                <IconButton>
+                                    <Tooltip className='colorPopper'>
+                                        <ColorPopper listenToColor={listenToColor}/>
                                     </Tooltip>
+                                </IconButton> 
+                                <IconButton>   
                                     <Tooltip>
                                         <InsertPhotoOutlined></InsertPhotoOutlined>
                                     </Tooltip>
+                                </IconButton>
+                                <IconButton>
                                     <Tooltip>
-                                        <ArchiveOutlined></ArchiveOutlined>
+                                        <ArchiveOutlined onClick={noteArchived}/>
                                     </Tooltip>
+                                </IconButton> 
+                                <IconButton>
                                     <Tooltip>
                                         <MoreVertOutlined></MoreVertOutlined>
                                     </Tooltip>
+                                </IconButton>
                                     <Tooltip>
                                         <UndoOutlined></UndoOutlined>
-                                    </Tooltip>
+                                    </Tooltip> 
                                     <Tooltip>
                                         <RedoOutlined></RedoOutlined>
-                                    </Tooltip>
+                                    </Tooltip>    
                             </Box>
                             <Box className='close' onClick={openNoteOne}>
                                 <Button variant="text" size="small"  style={{textTransform: "none",fontSize: "16px",color:"black" ,fontWeight: "bold",fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>Close</Button>

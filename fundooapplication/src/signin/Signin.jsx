@@ -57,6 +57,7 @@ const SignIn = () => {
         if(emailTest===true && passwordTest===true){
             loginAPI(signInObj).then(response=>{
                 console.log(response);
+                localStorage.setItem('token',response.data.data)
             }).catch(error=>{
                 console.log(error);
             })
@@ -105,7 +106,7 @@ const SignIn = () => {
             Learn More
           </a>
         </div>
-        <div className="row">
+        <div className="rowCreateSubmit">
           <div>
             <Button
               className="createAccount"

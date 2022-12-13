@@ -4,6 +4,7 @@
     position: relative;
     left: 500px;
     top: 40px;
+    bottom: 20px;
     border: 0px solid blue;
     display: flex;
     flex-direction: column;

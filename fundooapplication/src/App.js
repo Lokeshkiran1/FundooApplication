@@ -17,7 +17,7 @@ function App() {
       {/* <Header/>
       <TakeNoteOne />
       <TakeNoteTwo />
-      <TakeNoteThree />       */}
+      <TakeNoteThree />  */}
     </div>
   );
 }
