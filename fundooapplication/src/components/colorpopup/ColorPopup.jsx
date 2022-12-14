@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 import ColorLensTwoToneIcon from '@mui/icons-material/ColorLensTwoTone';
+import { colorTakeNoteThree } from '../../services/DataService';
 
 export default function ColorPopper(props) {
     const colors = ["#2ECC71", "#AF7AC5", "#F1948A", "#A3E4D7", "#F5B7B1", "#F5B041", "#DC7633", "#F1C40F", "#AAB7B8", "#F1948A", "#2ECC71", "#F5B041"]
@@ -12,7 +13,20 @@ export default function ColorPopper(props) {
   };
 
   const selectColor=(colour)=>{
-        props.listenToColor(colour)
+        if(props.action==="create"){
+          props.listenToColor(colour)
+        }
+        else if(props.action==="update"){
+          let id=[props.id]
+          console.log("[[[[[[[[[",id)
+          let obj={color:colour}
+          colorTakeNoteThree(id,obj).then(response=>{
+            props.listenToColorUpdate()
+            console.log(response);
+        }).catch(error=>{
+            console.log(error);
+        })
+      }
   }
 
   const open = Boolean(anchorEl);

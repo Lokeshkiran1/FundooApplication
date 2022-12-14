@@ -8,7 +8,9 @@ import { AddAlertOutlined, ArchiveOutlined, InsertPhotoOutlined, MoreVertOutline
 import { createNote } from '../../services/DataService';
 import ColorPopper from '../colorpopup/ColorPopup';
 const TakeNoteTwo=(props)=>{
+
     const [noteObj,setNoteObj]=useState({title:'',description:'',color:'',isArchived:false})
+
     const takingTitle=(event)=>{
         setNoteObj(prevState=>({
             ...prevState,
@@ -22,6 +24,7 @@ const TakeNoteTwo=(props)=>{
         }))
     }
     const openNoteOne=()=>{
+        console.log("=========",noteObj)
         props.listenToTakeNoteTwoCloseButton()
         createNote(noteObj).then(response=>{
             console.log(response);
@@ -35,10 +38,10 @@ const TakeNoteTwo=(props)=>{
             isArchived: true
         }))
     }
-    const listenToColor=(colour)=>{
+    const listenToColor=(noteColour)=>{
         setNoteObj(prevState=>({
             ...prevState,
-            color:colour
+            color:noteColour
         }))
 
     }
@@ -72,7 +75,7 @@ const TakeNoteTwo=(props)=>{
                                 </IconButton>
                                 <IconButton>
                                     <Tooltip className='colorPopper'>
-                                        <ColorPopper listenToColor={listenToColor}/>
+                                        <ColorPopper listenToColor={listenToColor} action="create"/>
                                     </Tooltip>
                                 </IconButton> 
                                 <IconButton>   

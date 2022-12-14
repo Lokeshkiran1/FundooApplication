@@ -7,19 +7,23 @@ import { getAllNotes } from '../../services/DataService';
 function DashBoard(){
     const [toggle,setToggle]=useState(false)
     const [noteList,setNoteList]=useState([])
+
     const listenToTakeNoteOne=()=>{
         setToggle(true)
     }
     const listenToTakeNoteTwoCloseButton=()=>{
         setToggle(false)
     }
-    useEffect(()=>{
+    const getNote=()=>{
         getAllNotes().then(response=>{
-                console.log(response);
-                setNoteList(response.data.data)
-            }).catch(error=>{
-                console.log(error);
-            })
+            console.log(response);
+            setNoteList(response.data.data)
+        }).catch(error=>{
+            console.log(error);
+        })
+    }
+    useEffect(()=>{
+        getNote()
     },[])
     return(
             <div>
@@ -30,7 +34,7 @@ function DashBoard(){
                     }
                     <div style={{display:'flex',flexDirection:'row',position:'relative',left:'280px',top:'50px',width:'70vw',flexWrap:'wrap'}}>
                         {
-                            noteList.map((note)=>(<TakeNoteThree note={note} />))
+                            noteList.map((note)=>(<TakeNoteThree note={note} getNote={getNote}/>))
                         }
                     </div>
                 </div>

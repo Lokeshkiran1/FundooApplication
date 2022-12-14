@@ -4,8 +4,21 @@ import React from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import { AddAlertOutlined, ArchitectureOutlined, ArchiveOutlined, DeleteOutlined, InsertPhotoOutlined, MoreVertOutlined, PersonAddAlt1Outlined, PushPinOutlined } from '@mui/icons-material';
 import ColorLensTwoToneIcon from '@mui/icons-material/ColorLensTwoTone';
+import ColorPopper from '../colorpopup/ColorPopup';
+import { archiveNote } from '../../services/DataService';
+
 const TakeNoteThree=(props)=>{
-    console.log("note threeeee===========>>>>",props)
+    const listenToColorUpdate=()=>{
+        props.getNote()
+    }
+    const archiveUpdate=(id)=>{
+        // let input={noteId:[id]}
+        archiveNote(id).then(response=>{
+            console.log(response)
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
     return(
         <Box className='frame'>
             <Box className='outerContainer' style={{backgroundColor:props.note.color}}>
@@ -32,13 +45,13 @@ const TakeNoteThree=(props)=>{
                             <PersonAddAlt1Outlined></PersonAddAlt1Outlined>
                         </Tooltip>
                         <Tooltip>
-                            <ColorLensTwoToneIcon></ColorLensTwoToneIcon>
+                            <ColorPopper action="update" id={props.note._id} listenToColorUpdate={listenToColorUpdate}/>
                         </Tooltip>
                         <Tooltip>
                             <InsertPhotoOutlined></InsertPhotoOutlined>
                         </Tooltip>
                         <Tooltip>
-                            <ArchiveOutlined></ArchiveOutlined>
+                            <ArchiveOutlined onClick={()=>archiveUpdate(props.note._id)} />
                         </Tooltip>
                         <Tooltip>
                             <MoreVertOutlined></MoreVertOutlined>
