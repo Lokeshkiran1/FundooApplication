@@ -8,13 +8,16 @@ import AppsIcon from '@mui/icons-material/Apps';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import React from 'react';
 import FundooIcon from "../FundooIcon";
-import "./Header.css"
-const Header=()=>{
+import "./Header.css";
+
+const Header=(props)=>{
+    const openDrawer=()=>{
+        props.listenToHeader();
+    }
     return(
-        <div>
             <div className='header'>
                 <div className='mainMenu'>
-                    <div className='menu'><MenuIcon></MenuIcon></div>
+                    <div className='menu'><MenuIcon onClick={openDrawer} /></div>
                     <div className='keep'><img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="logo" /></div>
                     <div className="fundooIcon"><FundooIcon /></div>
                 </div>
@@ -32,7 +35,6 @@ const Header=()=>{
                     <AccountCircleOutlinedIcon></AccountCircleOutlinedIcon>
                 </div>
             </div>
-        </div>
     )
 }
 export default Header;

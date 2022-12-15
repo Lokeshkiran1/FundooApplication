@@ -12,18 +12,7 @@ const TakeNoteOne=(props)=>{
     }
     
     return(
-        // <div>
-        //     <div className='takeNoteOne'>
-        //         <input className='takeNote' placeholder='Take a note...'></input>
-        //         <div className='buttons'>
-        //             <CheckBoxIcon></CheckBoxIcon>
-        //             <BrushIcon></BrushIcon>
-        //             <WallpaperIcon></WallpaperIcon>
-        //         </div>
-        //     </div>
-        // </div>
-        <Box>
-            <Paper elevation={4} className='takeNote' onClick={openNoteTwo}>
+            <Paper elevation={4} className='takeNoteMain' onClick={openNoteTwo}>
                 <Box className='takeNoteOne'>
                     <InputBase className='noteOne' placeholder='Take a note...'></InputBase>
                     <Box className='takeNoteIcon'>
@@ -39,7 +28,6 @@ const TakeNoteOne=(props)=>{
                     </Box>
                 </Box>
             </Paper>
-        </Box>
     )
 }
 export default TakeNoteOne;

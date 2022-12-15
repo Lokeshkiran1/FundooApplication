@@ -47,7 +47,6 @@ const TakeNoteTwo=(props)=>{
     }
     console.log("from note 2======>>",noteObj);
     return(
-        <Box>
             <Paper elevation={3} className='takeNoteTwo' style={{backgroundColor:noteObj.color}}>
                 <Box className='takeNote2A'>
                     <Box className='titlePin'>
@@ -106,7 +105,6 @@ const TakeNoteTwo=(props)=>{
                     </Box>
                 </Box>
             </Paper>
-        </Box>
     )
 }
 export default TakeNoteTwo;

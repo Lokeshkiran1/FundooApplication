@@ -5,15 +5,24 @@ import { IconButton, Tooltip } from '@mui/material';
 import { AddAlertOutlined, ArchitectureOutlined, ArchiveOutlined, DeleteOutlined, InsertPhotoOutlined, MoreVertOutlined, PersonAddAlt1Outlined, PushPinOutlined } from '@mui/icons-material';
 import ColorLensTwoToneIcon from '@mui/icons-material/ColorLensTwoTone';
 import ColorPopper from '../colorpopup/ColorPopup';
-import { archiveNote } from '../../services/DataService';
+import { archiveNote, isTrashUpdate } from '../../services/DataService';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 const TakeNoteThree=(props)=>{
+    
     const listenToColorUpdate=()=>{
         props.getNote()
     }
     const archiveUpdate=(id)=>{
         // let input={noteId:[id]}
         archiveNote(id).then(response=>{
+            console.log(response)
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+    const trashUpdate=(id)=>{
+        isTrashUpdate(id).then(response=>{
             console.log(response)
         }).catch(err=>{
             console.log(err)
@@ -44,15 +53,22 @@ const TakeNoteThree=(props)=>{
                         <Tooltip>
                             <PersonAddAlt1Outlined></PersonAddAlt1Outlined>
                         </Tooltip>
+                        <IconButton>
                         <Tooltip>
                             <ColorPopper action="update" id={props.note._id} listenToColorUpdate={listenToColorUpdate}/>
                         </Tooltip>
+                        </IconButton>
+                        <IconButton>
                         <Tooltip>
-                            <InsertPhotoOutlined></InsertPhotoOutlined>
+                            <DeleteOutlineOutlinedIcon onClick={()=>trashUpdate(props.note._id)}/>
                         </Tooltip>
+                        </IconButton>
+                        <IconButton>
                         <Tooltip>
                             <ArchiveOutlined onClick={()=>archiveUpdate(props.note._id)} />
                         </Tooltip>
+                        </IconButton>
+                        
                         <Tooltip>
                             <MoreVertOutlined></MoreVertOutlined>
                         </Tooltip>
