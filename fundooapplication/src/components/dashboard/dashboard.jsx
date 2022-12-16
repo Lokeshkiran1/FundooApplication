@@ -34,7 +34,7 @@ function DashBoard(){
             <div>
                 <Header listenToHeader={listenToHeader}/>
                 <MiniDrawer drawerToggle={drawerToggle}/>
-                <div>
+                <div style={{border:'1px solid red'}}>
                     {
                         toggle?<TakeNoteTwo listenToTakeNoteTwoCloseButton={listenToTakeNoteTwoCloseButton} />:<TakeNoteOne listenToTakeNoteOne={listenToTakeNoteOne} />
                     }

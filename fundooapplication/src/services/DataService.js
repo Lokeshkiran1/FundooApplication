@@ -22,3 +22,7 @@ export const isTrashUpdate=(id)=>{
     let response=axios.post(`http://localhost:4000/api/v1/notes/${id}/trash`,id,headerConfig)
     return response
 }
+export const noteUpdateTakeNoteThree=(id,obj)=>{
+    let response=axios.put(`http://localhost:4000/api/v1/notes/color/${id}`,obj,headerConfig)
+    return response
+}

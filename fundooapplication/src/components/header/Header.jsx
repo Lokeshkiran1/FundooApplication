@@ -15,7 +15,7 @@ const Header=(props)=>{
         props.listenToHeader();
     }
     return(
-            <div className='header'>
+            <div className='header' style={{border:'1px solid green'}}>
                 <div className='mainMenu'>
                     <div className='menu'><MenuIcon onClick={openDrawer} /></div>
                     <div className='keep'><img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="logo" /></div>

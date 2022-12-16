@@ -24,10 +24,10 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 const openedMixin = (theme) => ({
-    marginTop:66,
+    marginTop:67,
   width: drawerWidth,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -80,7 +80,7 @@ export default function MiniDrawer(props) {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex',border:'1px solid orange' }}>
       <CssBaseline />
       <Drawer variant="permanent" open={props.drawerToggle}>
        
