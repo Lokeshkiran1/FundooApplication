@@ -12,7 +12,7 @@ const TakeNoteOne=(props)=>{
     }
     
     return(
-            <Paper elevation={4} className='takeNoteMain' onClick={openNoteTwo}>
+            <Paper elevation={5} className='takeNoteMain' onClick={openNoteTwo}>
                 <Box className='takeNoteOne'>
                     <InputBase className='noteOne' placeholder='Take a note...'></InputBase>
                     <Box className='takeNoteIcon'>

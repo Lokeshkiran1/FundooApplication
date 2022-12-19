@@ -28,6 +28,7 @@ const TakeNoteTwo=(props)=>{
         props.listenToTakeNoteTwoCloseButton()
         createNote(noteObj).then(response=>{
             console.log(response);
+            props.autoRefresh();
         }).catch(error=>{
             console.log(error);
         })

@@ -52,7 +52,7 @@ const TakeNoteThree = (props) => {
     title: "",
     description: "",
   });
-  
+
   const handleOpen = (input) => {
     setInputObj({
       id: input._id,
@@ -64,7 +64,6 @@ const TakeNoteThree = (props) => {
 
   const handleClose = () => setOpen(false);
 
-
   const listenToColorUpdate = () => {
     props.getNote();
   };
@@ -74,6 +73,7 @@ const TakeNoteThree = (props) => {
     archiveNote(id)
       .then((response) => {
         console.log(response);
+        props.autoRefresh()
       })
       .catch((err) => {
         console.log(err);
@@ -83,6 +83,7 @@ const TakeNoteThree = (props) => {
     isTrashUpdate(id)
       .then((response) => {
         console.log(response);
+        props.autoRefresh()
       })
       .catch((err) => {
         console.log(err);
@@ -94,6 +95,7 @@ const TakeNoteThree = (props) => {
     noteUpdateTakeNoteThree(inputObj.id, inputObj)
       .then((res) => {
         console.log(res);
+        props.autoRefresh();
       })
       .catch((err) => {
         console.log(err);
@@ -174,8 +176,9 @@ const TakeNoteThree = (props) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} style={{ backgroundColor: props.note.color }}>
           <Box
+            className="innerCont1"
             sx={{
               width: "100%",
               height: "75%",
@@ -213,13 +216,22 @@ const TakeNoteThree = (props) => {
             <Box
               sx={{ width: "20%", height: "100%", border: "0px solid yellow" }}
             >
-                <Box sx={{ width: "40%", height: "30%", border: "0px solid brown",position:'relative',left:'60%',top:'10%' }}>
-                    <IconButton>
-                    <Tooltip>
-                        <PushPinOutlined></PushPinOutlined>
-                    </Tooltip>
-                    </IconButton>
-                </Box>
+              <Box
+                sx={{
+                  width: "40%",
+                  height: "30%",
+                  border: "0px solid brown",
+                  position: "relative",
+                  left: "60%",
+                  top: "10%",
+                }}
+              >
+                <IconButton>
+                  <Tooltip>
+                    <PushPinOutlined></PushPinOutlined>
+                  </Tooltip>
+                </IconButton>
+              </Box>
             </Box>
           </Box>
           <Box
@@ -243,20 +255,21 @@ const TakeNoteThree = (props) => {
                 justifyContent: "space-evenly",
                 alignItems: "center",
               }}
-            ><IconButton>
-              <Tooltip>
-                <AddAlertOutlined></AddAlertOutlined>
-              </Tooltip>
-              </IconButton>
+            >
               <IconButton>
-              <Tooltip>
-                <PersonAddAlt1Outlined></PersonAddAlt1Outlined>
-              </Tooltip>
+                <Tooltip>
+                  <AddAlertOutlined></AddAlertOutlined>
+                </Tooltip>
               </IconButton>
               <IconButton>
                 <Tooltip>
-                  <ColorPopper />
+                  <PersonAddAlt1Outlined></PersonAddAlt1Outlined>
                 </Tooltip>
+              </IconButton>
+              <IconButton>
+              <Tooltip>
+                <ColorLensTwoToneIcon />
+                    </Tooltip>
               </IconButton>
               <IconButton>
                 <Tooltip>
@@ -272,14 +285,14 @@ const TakeNoteThree = (props) => {
                 <MoreVertOutlined></MoreVertOutlined>
               </Tooltip>
               <IconButton>
-              <Tooltip>
-                <UndoOutlined />
-              </Tooltip>
+                <Tooltip>
+                  <UndoOutlined />
+                </Tooltip>
               </IconButton>
               <IconButton>
-              <Tooltip>
-                <RedoOutlined />
-              </Tooltip>
+                <Tooltip>
+                  <RedoOutlined />
+                </Tooltip>
               </IconButton>
             </Box>
             <Box
@@ -287,10 +300,15 @@ const TakeNoteThree = (props) => {
                 width: "20%",
                 height: "100%",
                 border: "0px solid black",
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
-                <Button sx={{position:'relative',left:'35%'}} onClick={updateNote}>Close</Button>
+              <Button
+                sx={{ position: "relative", left: "35%" }}
+                onClick={updateNote}
+              >
+                Close
+              </Button>
             </Box>
           </Box>
         </Box>

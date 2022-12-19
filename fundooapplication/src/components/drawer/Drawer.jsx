@@ -23,6 +23,7 @@ import { Height, LightbulbOutlined } from '@mui/icons-material';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import { connect } from 'react-redux';
 
 const drawerWidth = 220;
 
@@ -67,7 +68,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer(props) {
+function MiniDrawer(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -79,13 +80,20 @@ export default function MiniDrawer(props) {
     setOpen(false);
   };
 
+  const selectOption=(option)=>{
+    props.listenToDrawer(option);
+    props.dispatch({
+      type:`${option}`
+    })
+  }
+  
   return (
-    <Box sx={{ display: 'flex',border:'1px solid orange' }}>
+    <Box sx={{ display: 'flex',border:'1px solid red',width:'0%',height:'1vh' }}>
       <CssBaseline />
       <Drawer variant="permanent" open={props.drawerToggle}>
        
         <List>
-            <ListItem disablePadding sx={{ display: 'block' }}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption('Notes')}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -109,7 +117,7 @@ export default function MiniDrawer(props) {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption('Remainders')}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -133,7 +141,7 @@ export default function MiniDrawer(props) {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption('Edit')}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -153,11 +161,11 @@ export default function MiniDrawer(props) {
                 >
                 <EditOutlinedIcon />
                 </ListItemIcon>
-                <ListItemText sx={{marginLeft:5,}}primary="Edit Labels" />
+                <ListItemText sx={{marginLeft:5,}} primary="Edit Labels" />
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption('Archive')}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -177,11 +185,11 @@ export default function MiniDrawer(props) {
                 >
                 <ArchiveOutlinedIcon />
                 </ListItemIcon>
-                <ListItemText sx={{marginLeft:5,}}primary="Edit Labels" />
+                <ListItemText sx={{marginLeft:5,}} primary="Archive" />
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption('Bin')}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -212,3 +220,4 @@ export default function MiniDrawer(props) {
     </Box>
   );
 }
+export default connect()(MiniDrawer)

@@ -86,3 +86,85 @@
     letter-spacing: 0.5px;
     font-weight: 500;
 }
+@media only screen and (min-width: 320px) and (max-width: 480px){
+    .loginPage{
+        width: 280vw;
+        height: 130vh;
+        position: relative;
+        right: 280px;
+        top: 30px;
+    }
+    .rowCreateSubmit{
+        border:0px solid #1a73e8;
+        width: 230px;
+        position: relative;
+        right: 5px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px){
+    .loginPage{
+        width: 220vw;
+        height: 100vh;
+        position: relative;
+        right: 300px;
+        bottom: 70px;
+    }
+    .loginCard{
+        width:30%;
+        height: 80%;
+    }
+    .columncenter{
+        position: relative;
+        bottom: 40px;
+    }
+
+    .fitWidth{
+        position: relative;
+        top:0px;
+    }
+    .subText{
+        font-size: small;
+    }
+    .columnform{
+        width: 100%;
+        height: 20%;
+        position: relative;
+        bottom: 40px;
+    }
+    .notComputer{
+        position: relative;
+        top: 30px;
+    }
+    .rowCreateSubmit{
+        position: relative;
+        top: 60px;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+    .loginPage{
+        width: 180vw;
+        height: 120vh;
+        position: relative;
+        right: 350px;
+        bottom: 60px;
+    }
+    .columncenter{
+        position: relative;
+        bottom: 50px;
+    }
+    .columnform{
+        position: relative;
+        bottom: 50px;
+    }
+    .notComputer{
+        position: relative;
+        bottom: 30px;
+    }
+    .rowCreateSubmit{
+        position: relative;
+        top: 20px;
+    }
+}
+
+

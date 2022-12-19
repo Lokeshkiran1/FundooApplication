@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import Header from '../header/Header';
 import TakeNoteOne from '../takenoteone/TakeNoteOne';
 import TakeNoteTwo from '../takeNoteTwo/TakeNoteTwo';
@@ -9,6 +9,7 @@ function DashBoard(){
     const [toggle,setToggle]=useState(false)
     const [noteList,setNoteList]=useState([])
     const[drawerToggle,setDrawerToggle]=useState(false)
+    const [noteChoice,setNoteChoice]=useState('Notes')
 
     const listenToTakeNoteOne=()=>{
         setToggle(true)
@@ -19,28 +20,60 @@ function DashBoard(){
     const listenToHeader=()=>{
         setDrawerToggle(!drawerToggle)
     }
+    const autoRefresh=()=>{
+        getNote()
+    }
     const getNote=()=>{
         getAllNotes().then(response=>{
             console.log(response);
-            setNoteList(response.data.data)
+            let filterNote=[];
+            if(noteChoice==='Notes'){
+                filterNote=response.data.data.filter((note)=>{
+                    if(note.isArchived===false && note.isTrash===false){
+                        return note;
+                    }
+                })
+            }
+            else if(noteChoice==='Archive'){
+                filterNote=response.data.data.filter((note)=>{
+                    if(note.isArchived===true && note.isTrash===false){
+                        return note;
+                    }
+                })
+            }
+            else if(noteChoice==='Bin'){
+                filterNote=response.data.data.filter((note)=>{
+                    if(note.isArchived===false && note.isTrash===true){
+                        return note;
+                    }
+                })
+            }
+            console.log(filterNote)
+            setNoteList(filterNote)
+
         }).catch(error=>{
             console.log(error);
         })
     }
     useEffect(()=>{
         getNote()
-    },[])
+    },[noteChoice])
+
+    const listenToDrawer=(choice)=>{
+        setNoteChoice(choice)
+
+    }
     return(
             <div>
                 <Header listenToHeader={listenToHeader}/>
-                <MiniDrawer drawerToggle={drawerToggle}/>
-                <div style={{border:'1px solid red'}}>
+                <MiniDrawer drawerToggle={drawerToggle} listenToDrawer={listenToDrawer} />
+                <div style={{border:'0px solid red'}}>
                     {
-                        toggle?<TakeNoteTwo listenToTakeNoteTwoCloseButton={listenToTakeNoteTwoCloseButton} />:<TakeNoteOne listenToTakeNoteOne={listenToTakeNoteOne} />
+                        toggle?<TakeNoteTwo listenToTakeNoteTwoCloseButton={listenToTakeNoteTwoCloseButton} autoRefresh={autoRefresh}/>:<TakeNoteOne listenToTakeNoteOne={listenToTakeNoteOne} />
                     }
-                    <div style={{display:'flex',flexDirection:'row',position:'relative',left:'350px',top:'50px',width:'70vw',flexWrap:'wrap'}}>
+                    <div style={{display:'flex',flexDirection:'row',position:'relative',left:'300px',top:'40px',width:'80vw',flexWrap:'wrap'}}>
                         {
-                            noteList.map((note)=>(<TakeNoteThree note={note} getNote={getNote}/>))
+                            noteList.map((note)=>(<TakeNoteThree note={note} getNote={getNote} autoRefresh={autoRefresh}/>))
                         }
                     </div>
                 </div>

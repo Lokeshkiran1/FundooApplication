@@ -2,8 +2,8 @@
     height: 20vh;
     width: 45vw;
     position: relative;
-    left: 500px;
-    top: 0px;
+    left: 470px;
+    top: 30px;
     border: 0px solid blue;
     display: flex;
     flex-direction: column;

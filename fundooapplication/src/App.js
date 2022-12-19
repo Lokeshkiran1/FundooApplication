@@ -7,11 +7,14 @@ import TakeNoteOne from './components/takenoteone/TakeNoteOne';
 import TakeNoteTwo from './components/takeNoteTwo/TakeNoteTwo';
 import TakeNoteThree from './components/takeNoteThree/TakeNoteThree';
 import DashBoard from './components/dashboard/dashboard';
+import Router1 from './components/router/Router';
+//import Router1 from './components/router/Router1';
 
 function App() {
   return (
     <div className="App">
-      <DashBoard />
+      <Router1 />
+      {/* <DashBoard /> */}
       {/* <SignIn /> */}
       {/* <SignUp /> */}
       {/* <Header/>

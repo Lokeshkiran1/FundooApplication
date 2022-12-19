@@ -9,17 +9,18 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import React from 'react';
 import FundooIcon from "../FundooIcon";
 import "./Header.css";
+import { connect } from 'react-redux';
 
 const Header=(props)=>{
     const openDrawer=()=>{
         props.listenToHeader();
     }
     return(
-            <div className='header' style={{border:'1px solid green'}}>
+            <div className='header'>
                 <div className='mainMenu'>
                     <div className='menu'><MenuIcon onClick={openDrawer} /></div>
                     <div className='keep'><img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="logo" /></div>
-                    <div className="fundooIcon"><FundooIcon /></div>
+                    <div className="fundooIcon">{props.title}</div>
                 </div>
                 <div className='searchHeader'>
                     <Search className='search'></Search>
@@ -37,4 +38,9 @@ const Header=(props)=>{
             </div>
     )
 }
-export default Header;
+const mapStateToProps=(state)=>{
+    return {
+        title:state.drawerReducer.title
+    }
+}
+export default connect(mapStateToProps)(Header)
