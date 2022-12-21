@@ -5,6 +5,7 @@ import TakeNoteTwo from '../takeNoteTwo/TakeNoteTwo';
 import TakeNoteThree from '../takeNoteThree/TakeNoteThree'
 import { getAllNotes } from '../../services/DataService';
 import MiniDrawer from '../drawer/Drawer';
+import Headermui from '../Headermui'
 function DashBoard(){
     const [toggle,setToggle]=useState(false)
     const [noteList,setNoteList]=useState([])
@@ -65,7 +66,7 @@ function DashBoard(){
     }
     return(
             <div>
-                <Header listenToHeader={listenToHeader}/>
+                <Headermui listenToHeader={listenToHeader}/>
                 <MiniDrawer drawerToggle={drawerToggle} listenToDrawer={listenToDrawer} />
                 <div style={{border:'0px solid red'}}>
                     {

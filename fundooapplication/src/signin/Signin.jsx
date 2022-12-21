@@ -4,9 +4,11 @@ import FundooIcon from "../components/FundooIcon";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { loginAPI } from "../services/UserService";
+import { useNavigate } from "react-router-dom";
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
 const SignIn = () => {
+    const navigate=useNavigate()
     const [signInObj,setSignInObj]=useState({EmailID:"",Password:""});
     const [regexObj,setRegexObj]=useState({emailBorder:false,emailHelper:"",passwordBorder:false,passwordHelper:""})
     const takeEmail=(event)=>{
@@ -58,6 +60,7 @@ const SignIn = () => {
             loginAPI(signInObj).then(response=>{
                 console.log(response);
                 localStorage.setItem('token',response.data.data)
+                navigate('/dashboard')
             }).catch(error=>{
                 console.log(error);
             })

@@ -1,7 +1,7 @@
 import { Box } from "@mui/system";
 import "./TakeNoteThree.css";
 import React, { useState } from "react";
-import { Button, IconButton, InputBase, Tooltip } from "@mui/material";
+import { Button, IconButton, InputBase, Paper, Tooltip } from "@mui/material";
 import {
   AddAlertOutlined,
   ArchitectureOutlined,
@@ -116,10 +116,9 @@ const TakeNoteThree = (props) => {
   };
 
   return (
-    <Box className="frame">
+    <Paper className="frame" elevation={3} style={{ backgroundColor: props.note.color }}>
       <Box
         className="outerContainer"
-        style={{ backgroundColor: props.note.color }}
       >
         <Box className="innerContainer1">
           <Box className="leftContainer" onClick={() => handleOpen(props.note)}>
@@ -313,7 +312,7 @@ const TakeNoteThree = (props) => {
           </Box>
         </Box>
       </Modal>
-    </Box>
+    </Paper>
   );
 };
 export default TakeNoteThree;

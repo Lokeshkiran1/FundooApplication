@@ -1,5 +1,5 @@
 const initialState={
-    title:"keep"
+    title:"Keep"
 }
 export const drawerReducer = (state=initialState,action)=>{
     switch(action.type){

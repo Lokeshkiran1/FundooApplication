@@ -83,3 +83,58 @@
     position: relative;
     top:10%
 }
+@media only screen and (min-width: 320px) and (max-width: 480px){
+    .takeNoteTwo{
+        border:0px solid blue;
+        width: 77%;
+        height: 120px;
+        position: relative;
+        left:65px;
+        right: 0px;
+    }
+    takeNote2A{
+    }
+    .note2c{
+        border:0px solid blue;
+        width: 200px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .note2d{
+        border:0px solid blue;
+    }
+    .close{
+        border:0px solid blue;
+        position: relative;
+        left: 80px;
+        bottom: 0px;
+    }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px){
+    .takeNoteTwo{
+        border:0px solid blue;
+        width: 85%;
+        height: 120px;
+        position: relative;
+        left:65px;
+        right: 0px;
+    }
+    .close{
+        border:0px solid blue;
+        position: relative;
+        left: 25px;
+        bottom: 0px;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+    .takeNoteTwo{
+        border:0px solid blue;
+        width: 85%;
+        height: 120px;
+        position: relative;
+        left:90px;
+        right: 0px;
+    }
+}

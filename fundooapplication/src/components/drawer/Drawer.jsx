@@ -24,6 +24,7 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { connect } from 'react-redux';
+import './Drawer.css';
 
 const drawerWidth = 220;
 
@@ -88,9 +89,9 @@ function MiniDrawer(props) {
   }
   
   return (
-    <Box sx={{ display: 'flex',border:'1px solid red',width:'0%',height:'1vh' }}>
+    <Box sx={{ display: 'flex',border:'0px solid red',width:'0%',height:'1vh' }}>
       <CssBaseline />
-      <Drawer variant="permanent" open={props.drawerToggle}>
+      <Drawer className="drawer" variant="permanent" open={props.drawerToggle}>
        
         <List>
             <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption('Notes')}>
@@ -141,7 +142,7 @@ function MiniDrawer(props) {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption('Edit')}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>selectOption('Edit Labels')}>
               <ListItemButton
                 sx={{
                   minHeight: 48,

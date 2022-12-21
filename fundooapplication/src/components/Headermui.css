@@ -1,0 +1,58 @@
+@media only screen and (min-width: 320px) and (max-width: 480px){
+    .header{
+        height: 10vh;
+        border: 0px solid black;
+
+    }
+    .appBar{
+        border: 0px solid red;
+        width: 83% !important;
+        height: 11.5vh;
+        margin-right: 115px;
+        z-index: -1;
+       
+
+    }
+    .menuIcon{
+        border: 5px solid red;
+        width: 10%;
+        height: 15vh;
+        margin-left: 20px;
+    }
+    .keep{
+        border: 1px solid red;
+    }
+    .searchIcon{
+        display: none;
+    }
+    .iconsFive{
+        border: 1px solid red;
+        width: 50%;
+    }
+
+}
+@media only screen and (min-width: 481px) and (max-width: 768px){
+    .appBar{
+        border: 0px solid red;
+        width: 83% !important;
+        height: 11.5vh;
+        margin-right: 140px;
+    }
+    .searchIcon{
+        display: none;
+    }
+    .iconsFive{
+        border: 1px solid red;
+        width: 50% !important;
+    }
+
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+
+    .appBar{
+        border: 0px solid red;
+        width: 80% !important;
+        height: 11.5vh;
+        margin-right: 175px;
+    }
+}
