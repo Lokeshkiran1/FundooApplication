@@ -7,6 +7,7 @@ import { loginAPI } from "../services/UserService";
 import { useNavigate } from "react-router-dom";
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
+
 const SignIn = () => {
     const navigate=useNavigate()
     const [signInObj,setSignInObj]=useState({EmailID:"",Password:""});
@@ -66,6 +67,9 @@ const SignIn = () => {
             })
         }
     }
+    const openSignUp=()=>{
+      navigate('/signup')
+    }
     // console.log(signInObj);
   return (
     <div className="loginPage">
@@ -119,6 +123,7 @@ const SignIn = () => {
                 fontWeight: "bold",
                 fontFamily: '"Google Sans",Roboto,Arial,sans-serif',
               }}
+              onClick={openSignUp}
             >
               Create Account
             </Button>

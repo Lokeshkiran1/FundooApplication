@@ -5,6 +5,7 @@ import FundooIcon from "../components/FundooIcon";
 import logo from "../../src/account.svg";
 import { fontSize } from "@mui/system";
 import { registerAPI } from "../services/UserService";
+import { useNavigate } from "react-router-dom";
 const emailRegex =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex =
@@ -12,6 +13,8 @@ const passwordRegex =
 const firstNameRegex = /^[A-Z][a-zA-Z]{1,19}$/;
 const lastNameRegex = /^[A-Za-z ]{3,10}$/;
 const SignUp = () => {
+
+  const navigate=useNavigate();
   const [signUpObj, setSignUpObj] = useState({
         FirstName: "",
         LastName: "",
@@ -127,6 +130,9 @@ const SignUp = () => {
                 console.log(err);
             });
         }
+    }
+    const openSignIn=()=>{
+        navigate('/')
     }
     return (
         <div className="register">
@@ -261,6 +267,7 @@ const SignUp = () => {
                     fontWeight: "bold",
                     fontFamily: '"Google Sans",Roboto,Arial,sans-serif',
                   }}
+                  onClick={openSignIn}
                 >
                   Sign in instead
                 </Button>
